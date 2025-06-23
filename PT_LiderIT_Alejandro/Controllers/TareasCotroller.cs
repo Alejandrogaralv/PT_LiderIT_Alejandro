@@ -15,6 +15,10 @@ namespace PT_LiderIT_Alejandro.Controllers
             _service = service;
         }
 
+        /// <summary>
+        /// Obtiene la lista de todas las tareas.
+        /// </summary>
+        /// <returns>Una lista de tareas</returns>
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -22,6 +26,11 @@ namespace PT_LiderIT_Alejandro.Controllers
             return Ok(tareas);
         }
 
+        /// <summary>
+        /// Obtiene una tarea por su identificador.
+        /// </summary>
+        /// <param name="id">Identificador de la tarea.</param>
+        /// <returns>La tarea correspondiente, si existe.</returns>
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -30,6 +39,11 @@ namespace PT_LiderIT_Alejandro.Controllers
             return Ok(tarea);
         }
 
+        /// <summary>
+        /// Crea una nueva tarea.
+        /// </summary>
+        /// <param name="tarea">La tarea a crear.</param>
+        /// <returns>La tarea creada.</returns>
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] Tarea tarea)
         {
@@ -37,6 +51,11 @@ namespace PT_LiderIT_Alejandro.Controllers
             return CreatedAtAction(nameof(GetById), new { id = tarea.Id }, tarea);
         }
 
+        /// <summary>
+        /// Marca una tarea como completada.
+        /// </summary>
+        /// <param name="id">Identificador de la tarea a completar.</param>
+        /// <returns>No devuelve contenido si se completa con éxito.</returns>
         [HttpPatch("{id}/completar")]
         public async Task<IActionResult> MarcarComoCompletada(int id)
         {
@@ -44,6 +63,11 @@ namespace PT_LiderIT_Alejandro.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Elimina una tarea por su identificador.
+        /// </summary>
+        /// <param name="id">Identificador de la tarea a eliminar.</param>
+        /// <returns>No devuelve contenido si la eliminación es exitosa.</returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
