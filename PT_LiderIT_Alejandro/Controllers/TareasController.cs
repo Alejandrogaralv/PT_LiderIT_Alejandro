@@ -6,11 +6,11 @@ namespace PT_LiderIT_Alejandro.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class TareasCotroller: ControllerBase
+    public class TareasController: ControllerBase
     {
         private readonly ITareaService _service;
 
-        public TareasCotroller(ITareaService service)
+        public TareasController(ITareaService service)
         {
             _service = service;
         }
