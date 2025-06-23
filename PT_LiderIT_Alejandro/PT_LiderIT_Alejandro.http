@@ -1,0 +1,6 @@
+ @PT_LiderIT_Alejandro_HostAddress = http://localhost:5097
+
+GET {{PT_LiderIT_Alejandro_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
